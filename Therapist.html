@@ -38,7 +38,12 @@ line-height: 50%;
 		var patientLine = textbox.value;
 		therapySession += "<p> <em>" + patientLine + "</em> </p>";
 
-		var therapistLine = randomElement(genericResponses);
+		var therapistLine;
+		if (lastChar(patientLine) =="?") {
+			therapistLine = randomElement(questionResponses);
+		} else {
+			therapistLine = randomElement(genericResponses);
+		}	
 		therapySession += "<p>" + therapistLine + "</p>";
 
 		conversation.innerHTML = therapySession;
@@ -47,6 +52,10 @@ line-height: 50%;
 	function randomElement(myArray) {
 		var index = Math.floor(Math.random() * myArray.length);
 		return myArray[index];
+	}
+
+	function lastChar(myString) {
+		return myString.substring(myString.length - 1);
 	}
 </script>
 </body>
