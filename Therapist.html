@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+p {
+line-height: 50%;
+}
+</style>
+</head>
+<body onload="initialize()">
+<h1>Eliza</h1>
+<p>Write here: <input id="textbox" size="150"/></p>
+<p><button onclick="submitLine()">Submit</button></p>
+<div id="conversation"></div>
+<script>
+	var therapySession;
+	
+	function initialize() {
+		therapySession = "<p> I am the psychotherapist. What is your problem? </p>";
+		conversation.innerHTML = therapySession;
+	}
+
+	function submitLine() {
+		var patientLine = textbox.value;
+		therapySession += "<p> <em>" + patientLine + "</em> </p>";
+
+		conversation.innerHTML = therapySession;
+	}
+</script>
+</body>
+</html>
